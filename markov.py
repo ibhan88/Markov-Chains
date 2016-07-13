@@ -45,6 +45,7 @@ def make_chains(text_string):
 
 print make_chains(open_and_read_file('green-eggs.txt'))
 
+
 def make_text(chains):
     """Takes dictionary of markov chains; returns random text."""
 
@@ -52,16 +53,16 @@ def make_text(chains):
 
     random_key = choice(chains.keys())
 
-    text.extend([random_key[0],random_key[1]])
+    text.extend([random_key[0], random_key[1]])
 
     while random_key in chains:
         some_word = choice(chains.get(random_key))
         text.append(some_word)
         random_key = (text[-2], text[-1])
-    
+
     return " ".join(text)
-        
-        
+
+
 input_path = "green-eggs.txt"
 
 # Open the file and turn it into one long string
